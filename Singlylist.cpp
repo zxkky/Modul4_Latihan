@@ -45,11 +45,9 @@ address findElm(List L, infotype x) {
     return Nil;
 }
 
-/* ---------- DELETE ---------- */
-
 void delFirst(List &L, address &P) {
     if (L.First == Nil) {
-        P = Nil;                    // list kosong
+        P = Nil;   
     } else {
         P = L.First;
         L.First = P->next;
@@ -59,14 +57,14 @@ void delFirst(List &L, address &P) {
 
 void delLast(List &L, address &P) {
     if (L.First == Nil) {
-        P = Nil;                    // list kosong
+        P = Nil;                  
     } else if (L.First->next == Nil) {
-        P = L.First;                // hanya 1 elemen
+        P = L.First;               
         L.First = Nil;
     } else {
         address Q = L.First;
         while (Q->next->next != Nil) {
-            Q = Q->next;            // Q = elemen sebelum terakhir
+            Q = Q->next;           
         }
         P = Q->next;
         Q->next = Nil;
@@ -79,7 +77,7 @@ void delAfter(List &L, address &P, address Prec) {
         Prec->next = P->next;
         P->next = Nil;
     } else {
-        P = Nil;                    // tidak ada elemen setelah Prec
+        P = Nil;                    
     }
 }
 
@@ -90,8 +88,6 @@ void delAll(List &L) {
         dealokasi(P);
     }
 }
-
-/* ---------- UPDATE ---------- */
 
 void updateElm(List &L, infotype lama, infotype baru) {
     address P = findElm(L, lama);
